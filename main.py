@@ -50,7 +50,9 @@ def main():
     st.dataframe(df_option)
     st.markdown("""---""")
     st.title("📚 Wordcloud")
-    st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk. Je nach Filtereinstellungen ändert sich die Zusammensetzung. Die Anzahl der Wörter kann mit dem Slider aktiv beeinflusst werden.")
+    st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk.  \n"
+             "Je nach Filtereinstellungen ändert sich die Zusammensetzung.  \n"
+             "Die Anzahl der Wörter kann mit dem Slider aktiv beeinflusst werden.")
     count_wc = st.slider("Aus wie vielen Wörtern soll die Wordcloud bestehen?", 1, 100, 50)
     try:
         fig, ax1 = plt.subplots()
@@ -65,7 +67,8 @@ def main():
         st.write("Wordcloud kann nicht dargeastellt werden.")
     st.markdown("""---""")
     st.title("📊 Korrelation")
-    st.write("Die Heatmap zeigt die Korrelation zwischen den einzelenen nummerischen Spalten im Dataframe. Die Korrealtion ändert sich je nach Filtereinstellungen beim Dataframe")
+    st.write("Die Heatmap zeigt die Korrelation zwischen den einzelenen nummerischen Spalten im Dataframe  \n".
+             "Die Korrealtion ändert sich je nach Filtereinstellungen beim Dataframe")
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.heatmap(df_heatmap.corr(),annot=True)
     st.write(fig)
