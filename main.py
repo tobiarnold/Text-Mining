@@ -8,7 +8,7 @@ import seaborn as sns
 
 def main():
     st.set_page_config(page_title="Twitter Elon Musk", page_icon="🚗", layout="wide")
-    st.title("📈 Tweets von Elon Musk und der Tesla Aktienkurs")
+    st.title("Tweets von Elon Musk und der Tesla Aktienkurs")
     st.write("**Text Mining und Web Analytics**")
     st.write("Auf der folgenden Seite werden Tweets von Elon Musk zwischen dem **02.12.2019 und dem 22.04.2022** in einem Dataframe abgebildet. "
              "Tweets die kürzer als drei Wörter waren wurden gelöscht. "
@@ -43,7 +43,7 @@ def main():
     df_wordcloud=df_option[["Text"]]
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
     st.dataframe(df_option)
-    st.title("Wordcloud 📚")
+    st.title("📚 Wordcloud")
     count_wc = st.slider("Aus wie vielen Wörtern soll die Wordcloud bestehen?", 1, 100, 50)
     try:
         fig, ax1 = plt.subplots()
@@ -56,11 +56,11 @@ def main():
         st.write(fig)
     except:
         st.write("Wordcloud kann nicht dargeastellt werden.")
-    st.title("Korrelation 📊")
+    st.title("📊 Korrelation")
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.heatmap(df_heatmap.corr(),annot=True)
     st.write(fig)
-    st.title("Aktienkurs von Tesla 📈")
+    st.title("📈 Aktienkurs von Tesla")
     # get_stock_data = yf.Ticker("TSLA")
     # ticket_df = get_stock_data.history(period="1d", start="2019-9-26", end="2022-8-04")["Close"]
     # ticket_df.to_csv("ticket_df.csv")
