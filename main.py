@@ -13,7 +13,7 @@ def main():
     st.write("**Text Mining und Web Analytics**")
     st.markdown(link1, unsafe_allow_html=True)
     st.write("Auf der folgenden Seite werden Tweets von Elon Musk zwischen dem **02.12.2019 und dem 22.04.2022** in einem Dataframe abgebildet. "
-             "Tweets die kürzer als drei Wörter waren wurden gelöscht.  \n"
+             "Tweets die kürzer als drei Wörter waren wurden gelöscht und die Tweets mit Regular Expressions bereinigt.  \n"
              "Die Tweets wurden mit den Bibliothken textblob und nltk klassifiziert. "
              "Mit den verschiedenen Filtern lässt sich das Dataframe und die daraus generierten Grafiken interaktiv beinflussen   \n"
              "Die verschiedenen Spalten des Dataframes lassen sich mit einem Klick auf die Spaltenüberschrift absteigend oder aufsteigend sortieren.")
