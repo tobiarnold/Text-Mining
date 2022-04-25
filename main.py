@@ -10,8 +10,8 @@ def main():
     st.set_page_config(page_title="Twitter Elon Musk", page_icon="🚗", layout="wide")
     st.title("Tweets von Elon Musk und der Tesla Aktienkurs")
     link1 = "[Elon Musk Twitter](https://twitter.com/elonmusk)"
-    st.markdown(link1, unsafe_allow_html=True)
     st.write("**Text Mining und Web Analytics**")
+    st.markdown(link1, unsafe_allow_html=True)
     st.write("Auf der folgenden Seite werden Tweets von Elon Musk zwischen dem **02.12.2019 und dem 22.04.2022** in einem Dataframe abgebildet. "
              "Tweets die kürzer als drei Wörter waren wurden gelöscht.  \n"
              "Die Tweets wurden mit den Bibliothken textblob und nltk klassifiziert. "
