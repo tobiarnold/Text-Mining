@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def main():
-    st.set_page_config(page_title="Twitter Elon Musk", page_icon="🚗", layout="centered")
+    st.set_page_config(page_title="Twitter Elon Musk", page_icon="🚗", layout="wide")
     st.title("📈 Tweets von Elon Musk und der Tesla Aktienkurs")
     link1 = "[Elon Musk Twitter](https://twitter.com/elonmusk)"
     st.write("**Text Mining und Web Analytics**")
