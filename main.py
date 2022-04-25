@@ -50,8 +50,8 @@ def main():
     st.dataframe(df_option)
     st.markdown("""---""")
     st.title("📚 Wordcloud")
-    st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk.  \n"
-             "Je nach Filtereinstellungen ändert sich die Zusammensetzung.  \n"
+    st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk." 
+             "Je nach Filtereinstellungen im Dataframe ändert sich die Zusammensetzung.  \n"
              "Die Anzahl der Wörter kann mit dem Slider aktiv beeinflusst werden.")
     count_wc = st.slider("Aus wie vielen Wörtern soll die Wordcloud bestehen?", 1, 100, 50)
     try:
