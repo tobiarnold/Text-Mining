@@ -10,9 +10,9 @@ def main():
     st.set_page_config(page_title="Twitter Elon Musk", page_icon="🚗", layout="wide")
     st.title("Tweets von Elon Musk und der Tesla Aktienkurs")
     st.write("**Text Mining und Web Analytics**")
-    st.write("<br> Auf der folgenden Seite werden Tweets von Elon Musk zwischen dem **02.12.2019 und dem 22.04.2022** in einem Dataframe abgebildet. </br> "
-             "Tweets die kürzer als drei Wörter waren wurden gelöscht. "
-             "Die Tweets wurden mit den Bibliothken textblob und nltk klassifiziert. "
+    st.write("Auf der folgenden Seite werden Tweets von Elon Musk zwischen dem **02.12.2019 und dem 22.04.2022** in einem Dataframe abgebildet.\n"
+             "Tweets die kürzer als drei Wörter waren wurden gelöscht.\n"
+             "Die Tweets wurden mit den Bibliothken textblob und nltk klassifiziert.\n"
              "Mit den verschiedenen Filtern lässt sich das Dataframe und die daraus generierten Grafiken interaktiv beinflussen")
     df_choice = st.selectbox("Dataframe mit allen Tweets oder mit Tweets und Aktienkursen (Wochenenden fallen weg)?",
         ("alle Tweets", "Tweets mit Aktienkursen"))
