@@ -43,6 +43,8 @@ def main():
     df_wordcloud=df_option[["Text"]]
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
     st.dataframe(df_option)
+    st.markdown("***")
+    st.title("Wordcloud")
     count_wc = st.slider("Aus wie vielen Wörtern soll die Wordcloud bestehen?", 1, 100, 50)
     try:
         fig, ax1 = plt.subplots()
