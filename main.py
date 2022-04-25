@@ -59,7 +59,7 @@ def main():
     ax=sns.heatmap(df_heatmap.corr(),annot=True)
     st.write(fig)
     st.markdown("***")
-     st.title("Aktienkurs von Tesla")
+    st.title("Aktienkurs von Tesla")
     # get_stock_data = yf.Ticker("TSLA")
     # ticket_df = get_stock_data.history(period="1d", start="2019-9-26", end="2022-8-04")["Close"]
     # ticket_df.to_csv("ticket_df.csv")
