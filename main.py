@@ -61,7 +61,7 @@ def main():
     # get_stock_data = yf.Ticker("TSLA")
     # ticket_df = get_stock_data.history(period="1d", start="2019-9-26", end="2022-8-04")["Close"]
     # ticket_df.to_csv("ticket_df.csv")
-    ticket_df = pd.read_csv(r"ticket_df.csv", delimiter=",")
+    ticket_df = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Text-Mining/main/ticket_df.csv", delimiter=",")
     line = alt.Chart(ticket_df, title="Telsa Aktienkurs").mark_line().encode(x="Date:T", y="Close",
                                                                              color=alt.value("#cc0000"),
                                                                              tooltip=["Date:T",
