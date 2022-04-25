@@ -12,7 +12,6 @@ def main():
     link1 = "[Elon Musk Twitter](https://twitter.com/elonmusk)"
     st.write("**Text Mining und Web Analytics**")
     st.markdown(link1, unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center>Auf der folgenden Seite werden Tweets von Elon Musk zwischen dem **02.12.2019 und dem 22.04.2022** in einem Dataframe abgebildet.</p>", unsafe_allow_html=True)
     st.write("Auf der folgenden Seite werden Tweets von Elon Musk zwischen dem **02.12.2019 und dem 22.04.2022** in einem Dataframe abgebildet.  \n"
              "Tweets die kürzer als drei Wörter waren wurden gelöscht und die Tweets mit Regular Expressions bereinigt.  \n"
              "Die Tweets wurden mit den Bibliothken **textblob** und **nltk** klassifiziert **(positive, negative und neutrale Tweets)**.  \n"
