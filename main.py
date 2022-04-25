@@ -16,6 +16,7 @@ def main():
              "Tweets die kürzer als drei Wörter waren wurden gelöscht.  \n"
              "Die Tweets wurden mit den Bibliothken textblob und nltk klassifiziert. "
              "Mit den verschiedenen Filtern lässt sich das Dataframe und die daraus generierten Grafiken interaktiv beinflussen")
+    st.markdown("""---""")
     st.markdown("##### Verschiedene Filtereinstellungen für den Dataframe")
     df_choice = st.selectbox("Dataframe mit allen Tweets oder mit Tweets und Aktienkursen (Wochenenden fallen weg)?",
         ("alle Tweets", "Tweets mit Aktienkursen"),index=1)
@@ -47,7 +48,6 @@ def main():
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
     st.dataframe(df_option)
     st.markdown("""---""")
-    st.markdown("#")
     st.title("📚 Wordcloud")
     count_wc = st.slider("Aus wie vielen Wörtern soll die Wordcloud bestehen?", 1, 100, 50)
     try:
@@ -61,10 +61,12 @@ def main():
         st.write(fig)
     except:
         st.write("Wordcloud kann nicht dargeastellt werden.")
+    st.markdown("""---""")
     st.title("📊 Korrelation")
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.heatmap(df_heatmap.corr(),annot=True)
     st.write(fig)
+    st.markdown("""---""")
     st.title("📈 Aktienkurs von Tesla")
     # get_stock_data = yf.Ticker("TSLA")
     # ticket_df = get_stock_data.history(period="1d", start="2019-9-26", end="2022-8-04")["Close"]
