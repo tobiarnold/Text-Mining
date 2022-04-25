@@ -17,9 +17,9 @@ def main():
     df_choice = st.selectbox("Dataframe mit allen Tweets oder mit Tweets und Aktienkursen (Wochenenden fallen weg)?",
         ("alle Tweets", "Tweets mit Aktienkursen"))
     if df_choice == "alle Tweets":
-        df = pd.read_csv(r"df_all_tweets.csv", delimiter=",")
+        df = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Text-Mining/main/df_all_tweets.csv", delimiter=",")
     else:
-        df = pd.read_csv(r"tweets_streamlit.csv", delimiter=",")
+        df = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Text-Mining/main/tweets_streamlit.csv", delimiter=",")
     options = st.multiselect("Nach welchen Wörtern soll das Dataframe gefiltert werden?",
                              ["tesla", "car","model","engine","production","lithium","battery","factory","electric"])
     options2 = st.multiselect("Welche Sentiments sollen bei textblob beibehalten werden?",
