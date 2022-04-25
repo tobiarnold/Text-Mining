@@ -50,6 +50,7 @@ def main():
     st.dataframe(df_option)
     st.markdown("""---""")
     st.title("📚 Wordcloud")
+    st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk. Je nach Filtereinstellungen ändert sich die Zusammensetzung. Die Anzahl der Wörter kann mit dem Slider aktiv beeinflusst werden.")
     count_wc = st.slider("Aus wie vielen Wörtern soll die Wordcloud bestehen?", 1, 100, 50)
     try:
         fig, ax1 = plt.subplots()
@@ -64,11 +65,13 @@ def main():
         st.write("Wordcloud kann nicht dargeastellt werden.")
     st.markdown("""---""")
     st.title("📊 Korrelation")
+    st.write("Die Heatmap zeigt die Korrelation zwischen den einzelenen nummerischen Spalten im Dataframe. Die Korrealtion ändert sich je nach Filtereinstellungen beim Dataframe")
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.heatmap(df_heatmap.corr(),annot=True)
     st.write(fig)
     st.markdown("""---""")
     st.title("📈 Aktienkurs von Tesla")
+    st.write("Die folgende Grafik zeigt den Tesla Aktienkurs zwischen dem 26.09.2019 und dem 08.04.2022")
     # get_stock_data = yf.Ticker("TSLA")
     # ticket_df = get_stock_data.history(period="1d", start="2019-9-26", end="2022-8-04")["Close"]
     # ticket_df.to_csv("ticket_df.csv")
