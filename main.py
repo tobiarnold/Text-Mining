@@ -67,7 +67,7 @@ def main():
         st.write("Wordcloud kann nicht dargeastellt werden.")
     st.markdown("""---""")
     st.title("📊 Korrelation")
-    st.write("Die Heatmap zeigt die Korrelation zwischen den einzelenen nummerischen Spalten im Dataframe  \n".
+    st.write("Die Heatmap zeigt die Korrelation zwischen den einzelenen nummerischen Spalten im Dataframe.  \n"
              "Die Korrealtion ändert sich je nach Filtereinstellungen beim Dataframe")
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.heatmap(df_heatmap.corr(),annot=True)
