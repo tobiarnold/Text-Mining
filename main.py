@@ -43,7 +43,6 @@ def main():
     df_wordcloud=df_option[["Text"]]
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
     st.dataframe(df_option)
-    st.markdown("***")
     st.title("Wordcloud")
     count_wc = st.slider("Aus wie vielen Wörtern soll die Wordcloud bestehen?", 1, 100, 50)
     try:
@@ -57,12 +56,10 @@ def main():
         st.write(fig)
     except:
         st.write("Wordcloud kann nicht dargeastellt werden.")
-    st.markdown("***")
     st.title("Korrelation")
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.heatmap(df_heatmap.corr(),annot=True)
     st.write(fig)
-    st.markdown("***")
     st.title("Aktienkurs von Tesla")
     # get_stock_data = yf.Ticker("TSLA")
     # ticket_df = get_stock_data.history(period="1d", start="2019-9-26", end="2022-8-04")["Close"]
