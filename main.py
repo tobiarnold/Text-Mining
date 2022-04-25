@@ -74,9 +74,9 @@ def main():
     st.write(fig)
     st.markdown("""---""")
     st.title("📈 Aktienkurs von Tesla")
-    st.write("Die folgende Grafik zeigt den Tesla Aktienkurs zwischen dem 26.09.2019 und dem 08.04.2022")
+    st.write("Die folgende Grafik zeigt den Tesla Aktienkurs zwischen dem 01.12.2019 und dem 08.04.2022")
     # get_stock_data = yf.Ticker("TSLA")
-    # ticket_df = get_stock_data.history(period="1d", start="2019-9-26", end="2022-8-04")["Close"]
+    # ticket_df = get_stock_data.history(period="1d", start="2019-12-01", end="2022-8-04")["Close"]
     # ticket_df.to_csv("ticket_df.csv")
     ticket_df = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Text-Mining/main/ticket_df.csv", delimiter=",")
     line = alt.Chart(ticket_df, title="Telsa Aktienkurs").mark_line().encode(x="Date:T", y="Close",
