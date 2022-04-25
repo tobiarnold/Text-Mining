@@ -49,7 +49,7 @@ def main():
     df_heatmap=df_option
     df_wordcloud=df_option[["Text"]]
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
-    st.dataframe(df_option, width=50)
+    st.dataframe(df_option, width=500)
     st.markdown("""---""")
     st.title("📚 Wordcloud")
     st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk. " 
