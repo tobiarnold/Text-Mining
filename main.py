@@ -57,6 +57,8 @@ def main():
         st.write(fig)
     except:
         st.write("Wordcloud kann nicht dargeastellt werden.")
+    st.markdown("***")
+    st.title("Korrelation")
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.heatmap(df_heatmap.corr(),annot=True)
     st.write(fig)
