@@ -14,8 +14,8 @@ def main():
              "Tweets die kürzer als drei Wörter waren wurden gelöscht.  \n"
              "Die Tweets wurden mit den Bibliothken textblob und nltk klassifiziert. "
              "Mit den verschiedenen Filtern lässt sich das Dataframe und die daraus generierten Grafiken interaktiv beinflussen")
-    df_choice = st.selectbox("Dataframe mit allen Tweets oder mit Tweets und Aktienkursen (Wochenenden fallen weg)?",index=1
-        ("alle Tweets", "Tweets mit Aktienkursen"))
+    df_choice = st.selectbox("Dataframe mit allen Tweets oder mit Tweets und Aktienkursen (Wochenenden fallen weg)?",
+        ("alle Tweets", "Tweets mit Aktienkursen"),index=1)
     if df_choice == "alle Tweets":
         df = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Text-Mining/main/df_all_tweets.csv", delimiter=",")
     else:
