@@ -41,16 +41,18 @@ def main():
         df_option = df_option[df_option.new_sentiment]
         df_option = df_option.drop(columns="new_sentiment")
     else:
-        pass
+        st.write("Es ist ein Fehler aufgetreten. Bitte Seite neu laden.")
     df_option = df_option[df_option["Text"].str.contains('|'.join(options))]
     df_option = df_option[df_option["sentiment_textblob"].str.contains('|'.join(options2))]
     df_option = df_option[df_option["sentiment_nltk"].str.contains('|'.join(options3))]
-    style=(lambda x: "background-color : #90EE90" if x == "positive" else ("background-color : #FF7F7F" if x == "negative" else "background-color : #ffffa1"))
+    style1=(lambda x: "background-color : #90EE90" if x == "positive" else ("background-color : #FF7F7F" if x == "negative" else "background-color : #ffffa1"))
+    style1=(lambda x: "background-color : #90EE90" if x == "Higher" else ("background-color : #FF7F7F" if x == "Lower"))
     df_download=df_option
     df_heatmap=df_option
     df_countplot=df_option[["sentiment_textblob","sentiment_nltk"]]
     df_wordcloud=df_option[["Text"]]
-    df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
+    df_option = df_option.style.applymap(style1, subset=["sentiment_textblob","sentiment_nltk"])
+    df_option = df_option.style.applymap(style2, subset=["Change"])
     st.dataframe(df_option)
     @st.cache
     def convert_df(df_download):
