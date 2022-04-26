@@ -58,7 +58,7 @@ def main():
     st.write("Achtung beim Download des Dataframes werden nur die Filter alle Tweets oder Tweets mit Aktienkursen berücksichtigt")
     st.markdown("""---""")
     st.title("📊 Countplot der Sentiments")
-    fig, ax = plt.figure(figsize=(10, 4))
+    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.countplot(x = "sentiment_textblob", data = df_option)
     st.pyplot(fig)
     st.markdown("""---""")
