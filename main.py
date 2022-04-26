@@ -113,6 +113,7 @@ def main():
                                                                              tooltip=["Date:T",
                                                                                       "Close:Q"]).interactive()
     st.altair_chart(line, use_container_width=True)
-    st.write("Der Tesla Aktienkurs hat stetig zugenommen.")
+    st.write("Der Tesla Aktienkurs hat stetig zugenommen. " 
+             "Wie groß der Einluss von Elon Musk als einer der bekanntesten CEOs weltweit auf den Kursverlauf ist kann nicht abschließend erörtert werden.")
 if __name__ == "__main__":
   main()
