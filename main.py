@@ -48,7 +48,7 @@ def main():
     style=(lambda x: "background-color : #90EE90" if x == "positive" else ("background-color : #FF7F7F" if x == "negative" else "background-color : #ffffa1"))
     df_download=df_option
     df_heatmap=df_option
-    df_countplot=df_option[["sentiment_textblob","sentiment_nltk"]]
+    df_countplot=df_option
     df_wordcloud=df_option[["Text"]]
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
     st.dataframe(df_option)
@@ -85,7 +85,7 @@ def main():
         ax=sns.countplot(x ="Change", data = df_countplot,order = df_countplot["Change"].value_counts().index).set(title="Anzahl Veränderungen des Aktienkurses")
         st.pyplot(fig)
     except:
-        st.text("Bitte Dataframe mit Aktienkursen laden.")
+        st.text("Bitte Dataframe Tweets mit Aktienkursen laden.")
     st.markdown("""---""")
     st.title("📚 Wordcloud")
     st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk. " 
