@@ -51,7 +51,7 @@ def main():
     df_countplot=df_option
     df_wordcloud=df_option[["Text"]]
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
-    st.dataframe(df_option,500,500)
+    st.dataframe(df_option,1000,500)
     @st.cache
     def convert_df(df_download):
         return df_download.to_csv().encode('utf-8')
