@@ -85,7 +85,7 @@ def main():
         ax=sns.countplot(x ="Change", data = df_countplot,order = df_countplot["Change"].value_counts().index).set(title="Anzahl Veränderungen des Aktienkurses")
         st.pyplot(fig)
     except:
-        st.write("Bitte Dataframe mit Aktienkursen laden.")
+        st.text("Bitte Dataframe mit Aktienkursen laden.")
     st.markdown("""---""")
     st.title("📚 Wordcloud")
     st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk. " 
