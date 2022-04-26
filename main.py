@@ -78,7 +78,7 @@ def main():
     st.write("Die Tweets von Elon Musk werden hauptsächlich als positiv klassifiziert")
     try:
         st.write("Anzahl der Higher und Lower Aktienwerte")
-        changer_higher=df_countplot["Change"].str.count("Higher").sum()
+        change_higher=df_countplot["Change"].str.count("Higher").sum()
         change_lower=df_countplot["Change"].str.count("Lower").sum()
         st.write("Higher Change: ",change_higher," Lower Change: ",change_lower)
         fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
