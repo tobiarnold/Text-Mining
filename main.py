@@ -57,7 +57,6 @@ def main():
         return df_download.to_csv().encode('utf-8')
     csv = convert_df(df_download)
     st.download_button("Download des Dataframes",csv,"Elon_Musk_Tweets.csv","text/csv",key='download-csv')
-    st.write("Achtung beim Download des Dataframes werden nur die Filter alle Tweets oder Tweets mit Aktienkursen berücksichtigt")
     st.markdown("""---""")
     st.title("📊 Countplot der Sentiments")
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
