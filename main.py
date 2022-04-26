@@ -51,8 +51,8 @@ def main():
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
     st.dataframe(df_option)
     @st.cache
-    def convert_df(df):
-        return df.to_csv().encode('utf-8')
+    def convert_df(df_option):
+        return df_option.to_csv().encode("utf-8")
     csv = convert_df(df_option)
     st.download_button(label="Download als CSV Datei",data=csv,file_name="Tweets Elon Musk.csv",mime="text/csv")
     st.markdown("""---""")
