@@ -59,7 +59,6 @@ def main():
     st.download_button("Download des Dataframes",csv,"Elon_Musk_Tweets.csv","text/csv",key='download-csv')
     st.markdown("""---""")
     st.title("📊 Countplots der Sentiments")
-    st.dataframe(df_countplot)
     st.write("Klassifizierung mit textblob")
     textblob_positive=df_countplot.sentiment_textblob.str.count("positive").sum()
     textblob_negative=df_countplot.sentiment_textblob.str.count("negative").sum()
@@ -79,8 +78,8 @@ def main():
     st.write("Die Tweets von Elon Musk werden hauptsächlich als positiv klassifiziert")
     try:
         st.write("Anzahl der Higher und Lower Aktienwerte")
-        changer_higher=df_countplot.change.str.count("Higher").sum()
-        change_lower=df_countplot.change.str.count("Lower").sum()
+        changer_higher=df_countplot["Change"].str.count("Higher").sum()
+        change_lower=df_countplot["Change"].str.count("Lower").sum()
         st.write("Higher Change: ",change_higher," Lower Change: ",change_lower)
         fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
         ax=sns.countplot(x ="Change", data = df_countplot,order = df_countplot["Change"].value_counts().index).set(title="Anzahl Veränderungen des Aktienkurses")
