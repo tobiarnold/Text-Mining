@@ -50,12 +50,12 @@ def main():
     df_wordcloud=df_option[["Text"]]
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
     st.dataframe(df_option)
-    
     @st.cache
     def convert_df(df):
         return df.to_csv().encode('utf-8')
     csv = convert_df(df)
     st.download_button("Download des Dataframes",csv,"Elon_Musk_Tweets.csv","text/csv",key='download-csv')
+    st.write("Achtung beim Download des Dataframes werden nur die Filter alle Tweets oder Tweets mit Aktienkursen berücksichtigt")
     st.markdown("""---""")
     st.title("📚 Wordcloud")
     st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk. " 
