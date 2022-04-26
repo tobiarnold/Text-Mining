@@ -45,7 +45,7 @@ def main():
     df_option = df_option[df_option["Text"].str.contains('|'.join(options))]
     df_option = df_option[df_option["sentiment_textblob"].str.contains('|'.join(options2))]
     df_option = df_option[df_option["sentiment_nltk"].str.contains('|'.join(options3))]
-    style=(lambda x: "background-color : #90EE90" if x == "positive" | "Higher" else ("background-color : #FF7F7F" if x == "negative" | "Lower" else "background-color : #ffffa1"))
+    style=(lambda x: "background-color : #90EE90" if x == "positive" or "Higher" else ("background-color : #FF7F7F" if x == "negative" or "Lower" else "background-color : #ffffa1"))
     #style2=(lambda x: "background-color: #90EE90" if (x == "Higher") else ("background-color:  #FF7F7F" if x == "Lower" else ""))
     df_download=df_option
     df_heatmap=df_option
