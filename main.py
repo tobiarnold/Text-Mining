@@ -64,8 +64,6 @@ def main():
     st.pyplot(fig)
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.countplot(x ="sentiment_nltk", data = df_countplot).set(title="Anzahl Sentiments nltk")
-    for p in ax.patches:
-        ax.annotate('{:.1f}'.format(p.get_height()), (p.get_x()+0.25, p.get_height()+0.01))
     st.pyplot(fig)
     st.markdown("""---""")
     st.title("📚 Wordcloud")
