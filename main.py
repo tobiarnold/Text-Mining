@@ -61,7 +61,7 @@ def main():
     st.title("📊 Countplots der Sentiments")
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.countplot(x ="sentiment_textblob", data = df_countplot).set(title="Anzahl Sentiments textblob")
-    ax.bar_label(ax.containers[0])
+    ax.bar_label(ax.containers[0], label_type='edge')
     st.pyplot(fig)
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.countplot(x ="sentiment_nltk", data = df_countplot).set(title="Anzahl Sentiments nltk")
