@@ -9,6 +9,7 @@ import seaborn as sns
 def main():
     st.set_page_config(page_title="Twitter Elon Musk", page_icon="🚗", layout="centered")
     st.title("📈 Tweets von Elon Musk und der Tesla Aktienkurs")
+    pd.set_option('display.max_columns', None)
     link1 = "[Elon Musk Twitter](https://twitter.com/elonmusk)"
     st.write("**Text Mining und Web Analytics**")
     st.markdown(link1, unsafe_allow_html=True)
