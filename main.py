@@ -75,6 +75,7 @@ def main():
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.countplot(x ="sentiment_nltk", data = df_countplot).set(title="Anzahl Sentiments nltk")
     st.pyplot(fig)
+    st.write("Die Tweets von Elon Musk werden hauptsächlich als positiv klassifiziert")
     st.markdown("""---""")
     st.title("📚 Wordcloud")
     st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk. " 
@@ -99,6 +100,7 @@ def main():
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.heatmap(df_heatmap.corr(),annot=True)
     st.write(fig)
+    st.write("Leider konnte keine Korrelation zwischen den Tweets von Elon Musk und dem Tesla Aktienkurs festgestellt werden.")
     st.markdown("""---""")
     st.title("📈 Aktienkurs von Tesla")
     st.write("Die folgende Grafik zeigt den Tesla Aktienkurs zwischen dem 01.12.2019 und dem 08.04.2022")
@@ -111,5 +113,6 @@ def main():
                                                                              tooltip=["Date:T",
                                                                                       "Close:Q"]).interactive()
     st.altair_chart(line, use_container_width=True)
+    st.write("Der Tesla Aktienkurs hat stetig zugenommen.")
 if __name__ == "__main__":
   main()
