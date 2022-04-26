@@ -46,15 +46,16 @@ def main():
     df_option = df_option[df_option["sentiment_textblob"].str.contains('|'.join(options2))]
     df_option = df_option[df_option["sentiment_nltk"].str.contains('|'.join(options3))]
     style=(lambda x: "background-color : #90EE90" if x == "positive" else ("background-color : #FF7F7F" if x == "negative" else "background-color : #ffffa1"))
+    df_download=df_option
     df_heatmap=df_option
     df_countplot=df_option[["sentiment_textblob","sentiment_nltk"]]
     df_wordcloud=df_option[["Text"]]
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
     st.dataframe(df_option)
     @st.cache
-    def convert_df(df):
-        return df.to_csv().encode('utf-8')
-    csv = convert_df(df)
+    def convert_df(df_download):
+        return df_download.to_csv().encode('utf-8')
+    csv = convert_df(df_download)
     st.download_button("Download des Dataframes",csv,"Elon_Musk_Tweets.csv","text/csv",key='download-csv')
     st.write("Achtung beim Download des Dataframes werden nur die Filter alle Tweets oder Tweets mit Aktienkursen berücksichtigt")
     st.markdown("""---""")
