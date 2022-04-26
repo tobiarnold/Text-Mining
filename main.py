@@ -58,7 +58,9 @@ def main():
     st.write("Achtung beim Download des Dataframes werden nur die Filter alle Tweets oder Tweets mit Aktienkursen berücksichtigt")
     st.markdown("""---""")
     st.title("📊 Countplot der Sentiments")
-    
+    fig = plt.figure(figsize=(10, 4))
+    sns.countplot(x = "sentiment_textblob", data = df_option)
+    st.pyplot(fig)
     st.markdown("""---""")
     st.title("📚 Wordcloud")
     st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk. " 
