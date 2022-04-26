@@ -59,6 +59,7 @@ def main():
     st.download_button("Download des Dataframes",csv,"Elon_Musk_Tweets.csv","text/csv",key='download-csv')
     st.markdown("""---""")
     st.title("📊 Countplots der Sentiments")
+    st.dataframe(df_countplot)
     st.write("Klassifizierung mit textblob")
     textblob_positive=df_countplot.sentiment_textblob.str.count("positive").sum()
     textblob_negative=df_countplot.sentiment_textblob.str.count("negative").sum()
