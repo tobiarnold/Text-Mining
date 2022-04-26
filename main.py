@@ -46,7 +46,7 @@ def main():
     df_option = df_option[df_option["sentiment_textblob"].str.contains('|'.join(options2))]
     df_option = df_option[df_option["sentiment_nltk"].str.contains('|'.join(options3))]
     style1=(lambda x: "background-color : #90EE90" if x == "positive" else ("background-color : #FF7F7F" if x == "negative" else "background-color : #ffffa1"))
-    style1=(lambda x: "background-color : #90EE90" if x == "Higher" else ("background-color : #FF7F7F" if x == "Lower"))
+    style1=(lambda x: "background-color : #90EE90" if x == "Higher" else "background-color : #FF7F7F" if x == "Lower")
     df_download=df_option
     df_heatmap=df_option
     df_countplot=df_option[["sentiment_textblob","sentiment_nltk"]]
