@@ -62,6 +62,8 @@ def main():
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.countplot(x ="sentiment_textblob", data = df_countplot).set(title="Anzahl Sentiments textblob")
     st.pyplot(fig)
+    textblob_positive=df_countplot.sentiment_textblob.str.count("positive").sum()
+    st.write(textblob_positive)
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.countplot(x ="sentiment_nltk", data = df_countplot).set(title="Anzahl Sentiments nltk")
     st.pyplot(fig)
