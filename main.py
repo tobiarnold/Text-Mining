@@ -58,7 +58,7 @@ def main():
     csv = convert_df(df_download)
     st.download_button("Download des Dataframes",csv,"Elon_Musk_Tweets.csv","text/csv",key='download-csv')
     st.markdown("""---""")
-    st.title("📊 Countplot der Sentiments")
+    st.title("📊 Countplots der Sentiments")
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.countplot(x ="sentiment_textblob", data = df_countplot).set(title="Anzahl Sentiments textblob")
     st.pyplot(fig)
