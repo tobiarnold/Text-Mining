@@ -46,6 +46,20 @@ def main():
     df_option = df_option[df_option["sentiment_textblob"].str.contains('|'.join(options2))]
     df_option = df_option[df_option["sentiment_nltk"].str.contains('|'.join(options3))]
     style=(lambda x: "background-color : #90EE90" if x == "positive" else ("background-color : #FF7F7F" if x == "negative" else "background-color : #ffffa1"))
+   
+    @st.cache
+    def convert_df(df):
+        return df_option.to_csv().encode('utf-8')
+    csv = convert_df(my_large_df)
+
+    st.download_button(
+    label="Download als CSV Datei",data=csv,file_name="Tweets Elon Musk.csv",mime="text/csv")
+    
+    
+    
+    
+    
+    
     df_heatmap=df_option
     df_wordcloud=df_option[["Text"]]
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
