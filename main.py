@@ -57,6 +57,9 @@ def main():
     st.download_button("Download des Dataframes",csv,"Elon_Musk_Tweets.csv","text/csv",key='download-csv')
     st.write("Achtung beim Download des Dataframes werden nur die Filter alle Tweets oder Tweets mit Aktienkursen berücksichtigt")
     st.markdown("""---""")
+    st.title("📊 Countplot der Sentiments")
+    
+    st.markdown("""---""")
     st.title("📚 Wordcloud")
     st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk. " 
              "Je nach Filtereinstellungen im Dataframe ändert sich die Zusammensetzung.  \n"
