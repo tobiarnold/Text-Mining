@@ -52,7 +52,7 @@ def main():
     st.dataframe(df_option)
     @st.cache
     def convert_df(df_option):
-        return df_option.to_csv().encode("utf-8")
+        return df_option.to_csv()
     csv = convert_df(df_option)
     st.download_button(label="Download als CSV Datei",data=csv,file_name="Tweets Elon Musk.csv",mime="text/csv")
     st.markdown("""---""")
