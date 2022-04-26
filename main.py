@@ -59,7 +59,7 @@ def main():
     st.markdown("""---""")
     st.title("📊 Countplot der Sentiments")
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
-    ax=sns.countplot(x = "sentiment_textblob", data = df_option)
+    ax=sns.countplot(x ="sentiment_textblob", data = df)
     st.pyplot(fig)
     st.markdown("""---""")
     st.title("📚 Wordcloud")
