@@ -47,6 +47,7 @@ def main():
     df_option = df_option[df_option["sentiment_nltk"].str.contains('|'.join(options3))]
     style=(lambda x: "background-color : #90EE90" if x == "positive" else ("background-color : #FF7F7F" if x == "negative" else "background-color : #ffffa1"))
     df_heatmap=df_option
+    df_countplot=df_option[["sentiment_textblob","sentiment_nltk"]]
     df_wordcloud=df_option[["Text"]]
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
     st.dataframe(df_option)
@@ -59,7 +60,7 @@ def main():
     st.markdown("""---""")
     st.title("📊 Countplot der Sentiments")
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
-    ax=sns.countplot(x ="sentiment_textblob", data = df)
+    ax=sns.countplot(x ="sentiment_textblob", data = df_countplot)
     st.pyplot(fig)
     st.markdown("""---""")
     st.title("📚 Wordcloud")
