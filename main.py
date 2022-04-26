@@ -76,6 +76,16 @@ def main():
     ax=sns.countplot(x ="sentiment_nltk", data = df_countplot,order = df_countplot["sentiment_nltk"].value_counts().index).set(title="Anzahl Sentiments nltk")
     st.pyplot(fig)
     st.write("Die Tweets von Elon Musk werden hauptsächlich als positiv klassifiziert")
+    try:
+        st.write("Anzahl der Higher und Lower Aktienwerte")
+        changer_higher=df_countplot.Change.str.count("Higher").sum()
+        change_lower=df_countplot.Change.str.count("Lower").sum()
+        st.write("Higher Change: ",change_higher," Lower Change: ",change_lower)
+        fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
+        ax=sns.countplot(x ="Change", data = df_countplot,order = df_countplot["Change"].value_counts().index).set(title="Anzahl Veränderungen des Aktienkurses")
+        st.pyplot(fig)
+    except:
+        st.write("Bitte Dataframe mit Aktienkursen laden.")
     st.markdown("""---""")
     st.title("📚 Wordcloud")
     st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk. " 
