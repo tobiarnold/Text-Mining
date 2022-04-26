@@ -45,7 +45,7 @@ def main():
     df_option = df_option[df_option["Text"].str.contains('|'.join(options))]
     df_option = df_option[df_option["sentiment_textblob"].str.contains('|'.join(options2))]
     df_option = df_option[df_option["sentiment_nltk"].str.contains('|'.join(options3))]
-    style=(lambda x: "background-color : #90EE90" if x == "positive" else ("background-color : red" if x == "negative" else "background-color : yellow"))
+    style=(lambda x: "background-color : #90EE90" if x == "positive" else ("background-color : #FF7F7F" if x == "negative" else "background-color : #ffffa1"))
     df_heatmap=df_option
     df_wordcloud=df_option[["Text"]]
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
