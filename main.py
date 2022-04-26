@@ -21,7 +21,7 @@ def main():
              """)
     st.markdown("""---""")
     st.markdown("##### Verschiedene Filtereinstellungen für den Dataframe")
-    df_choice = st.selectbox("Dataframe mit allen Tweets oder mit Tweets und Aktienkursen (Wochenenden fallen weg)?",
+    df_choice = st.selectbox("Dataframe mit allen Tweets (ohne Aktienkurse) oder mit Tweets und Aktienkursen (Wochenenden fallen weg)?",
         ("alle Tweets", "Tweets mit Aktienkursen"),index=1)
     if df_choice == "alle Tweets":
         df = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Text-Mining/main/df_all_tweets.csv", delimiter=",")
