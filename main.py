@@ -48,12 +48,11 @@ def main():
     style=(lambda x: "background-color : #90EE90" if x == "positive" else ("background-color : #FF7F7F" if x == "negative" else "background-color : #ffffa1"))
    
     @st.cache
-    def convert_df(df):
+    def convert_df(df_option):
         return df_option.to_csv().encode('utf-8')
-    csv = convert_df(my_large_df)
+    csv = convert_df(df_option)
 
-    st.download_button(
-    label="Download als CSV Datei",data=csv,file_name="Tweets Elon Musk.csv",mime="text/csv")
+    st.download_button(label="Download als CSV Datei",data=csv,file_name="Tweets Elon Musk.csv",mime="text/csv")
     
     
     
