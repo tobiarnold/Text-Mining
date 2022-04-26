@@ -62,6 +62,9 @@ def main():
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
     ax=sns.countplot(x ="sentiment_textblob", data = df_countplot)
     st.pyplot(fig)
+    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(9, 3))
+    ax=sns.countplot(x ="sentiment_nltk", data = df_countplot)
+    st.pyplot(fig)
     st.markdown("""---""")
     st.title("📚 Wordcloud")
     st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk. " 
