@@ -28,11 +28,12 @@ def main():
             df = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Text-Mining/main/df_all_tweets.csv", delimiter=",")
         else:
             df = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Text-Mining/main/tweets_streamlit.csv", delimiter=",")
-    options = st.multiselect("Nach welchen Wörtern soll das Dataframe gefiltert werden?",
+    with st.sidebar.subheader("Optionen"):
+        options = st.sidebar.multiselect("Nach welchen Wörtern soll das Dataframe gefiltert werden?",
                              ["tesla", "car","model","engine","production","lithium","battery","factory","electric"])
-    options2 = st.multiselect("Welche Sentiments sollen bei textblob beibehalten werden?",
+        options2 = st.sidebar.multiselect("Welche Sentiments sollen bei textblob beibehalten werden?",
                              ["positive", "negative", "neutral"])
-    options3 = st.multiselect("Welche Sentiments sollen bei nltk beibehalten werden?",
+        options3 = st.sidebar.multiselect("Welche Sentiments sollen bei nltk beibehalten werden?",
                               ["positive", "negative", "neutral"])
     df_option=df
     option = st.radio("Sollen bei den Sentiment Spalten nur gleiche Klassifizierungen behalten werden?", ("Ja", "Nein"),index=1)
