@@ -19,8 +19,8 @@ def main():
              - Mit den verschiedenen Filtern lässt sich das Dataframe und die daraus generierten Grafiken interaktiv beinflussen. 
              - Die verschiedenen Spalten des Dataframes lassen sich mit einem Klick auf die Spaltenüberschrift absteigend oder aufsteigend sortieren.
              """)
-    st.write("Über den Filter auf der linken Seite können die verschiedenen Parameter verändert werden." 
-             " Bei mobilen Geräten ist der Filter standardmäßig ausgeblendet und lässt sich mit dem Pfeil oben links aktivieren.")
+    st.write("⚠️ Über den Filter auf der linken Seite können die verschiedenen Parameter verändert werden." 
+             " Bei mobilen Geräten ist der Filter standardmäßig ausgeblendet und lässt sich mit dem Pfeil oben links aktivieren. ⚠️")
     st.markdown("""---""")
     st.title("👩‍💻 Dataframe")
     with st.sidebar.header ("Verschiedene Filtereinstellungen für den Dataframe"):
