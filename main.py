@@ -21,7 +21,7 @@ def main():
              """)
     st.markdown("""---""")
     st.markdown("##### Verschiedene Filtereinstellungen für den Dataframe")
-    with st.sidebar.header:
+    with st.sidebar.header ("Auswahl Dataframe"):
         df_choice = st.sidebar.selectbox("Dataframe mit allen Tweets (ohne Aktienkurse) oder mit Tweets und Aktienkursen (Wochenenden fallen weg)?",
         ("alle Tweets", "Tweets mit Aktienkursen"),index=1)
         if df_choice == "alle Tweets":
