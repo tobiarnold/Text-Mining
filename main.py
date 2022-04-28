@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit import cli as stcli
 import pandas as pd
 import altair as alt
 from wordcloud import WordCloud, STOPWORDS
