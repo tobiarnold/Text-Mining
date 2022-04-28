@@ -20,7 +20,6 @@ def main():
              - Die verschiedenen Spalten des Dataframes lassen sich mit einem Klick auf die Spaltenüberschrift absteigend oder aufsteigend sortieren.
              """)
     st.markdown("""---""")
-    st.markdown("##### Verschiedene Filtereinstellungen für den Dataframe")
     with st.sidebar.header ("Verschiedene Filtereinstellungen für den Dataframe"):
         df_choice = st.sidebar.selectbox("Dataframe mit allen Tweets (ohne Aktienkurse) oder mit Tweets und Aktienkursen (Wochenenden fallen weg)?",
         ("alle Tweets", "Tweets mit Aktienkursen"),index=1)
@@ -36,14 +35,14 @@ def main():
         options3 = st.sidebar.multiselect("Welche Sentiments sollen bei nltk beibehalten werden?",
                               ["positive", "negative", "neutral"])
     df_option=df
-        option = st.sidebar.radio("Sollen bei den Sentiment Spalten nur gleiche Klassifizierungen behalten werden?", ("Ja", "Nein"),index=1)
-        if option == "Ja":
-            cols = ["sentiment_textblob", "sentiment_nltk"]
-            df_option["new_sentiment"] = df_option[cols].eq(df_option[cols[0]], axis=0).all(axis=1)
-            df_option = df_option[df_option.new_sentiment]
-            df_option = df_option.drop(columns="new_sentiment")
-        else:
-            pass
+    option = st.radio("Sollen bei den Sentiment Spalten nur gleiche Klassifizierungen behalten werden?", ("Ja", "Nein"),index=1)
+    if option == "Ja":
+        cols = ["sentiment_textblob", "sentiment_nltk"]
+        df_option["new_sentiment"] = df_option[cols].eq(df_option[cols[0]], axis=0).all(axis=1)
+        df_option = df_option[df_option.new_sentiment]
+        df_option = df_option.drop(columns="new_sentiment")
+    else:
+        pass
     df_option = df_option[df_option["Text"].str.contains('|'.join(options))]
     df_option = df_option[df_option["sentiment_textblob"].str.contains('|'.join(options2))]
     df_option = df_option[df_option["sentiment_nltk"].str.contains('|'.join(options3))]
