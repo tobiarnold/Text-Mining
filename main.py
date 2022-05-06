@@ -28,7 +28,7 @@ def main():
         if df_choice == "alle Tweets":
             df = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Text-Mining/main/df_all_tweets.csv", delimiter=",")
         else:
-            df = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Text-Mining/main/tweets_streamlit.csv", delimiter=",")
+            df = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Text-Mining/main/df_tweets_and_stock.csv", delimiter=",")
     with st.sidebar.subheader("Optionen"):
         options = st.sidebar.multiselect("Nach welchen Wörtern soll das Dataframe gefiltert werden?",
                              ["tesla", "car","model","engine","production","lithium","battery","factory","electric"])
@@ -99,7 +99,7 @@ def main():
         fig, ax1 = plt.subplots()
         text = " ".join(i for i in df_wordcloud.Text)
         stopwords_wordcloud = set(STOPWORDS)
-        wordcloud = WordCloud(background_color="black", stopwords=stopwords_wordcloud,colormap = 'Paired', max_words=count_wc)
+        wordcloud = WordCloud(background_color="black", stopwords=stopwords_wordcloud,colormap = "Paired", max_words=count_wc)
         wordcloud.generate(text)
         ax1.imshow(wordcloud, interpolation="bilinear")
         ax1.axis("off")
