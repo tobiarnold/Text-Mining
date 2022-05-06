@@ -4,6 +4,7 @@ import altair as alt
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 import seaborn as sns
+#import yfinance
 
 def main():
     st.set_page_config(page_title="Twitter Elon Musk", page_icon="🚗", layout="centered")
@@ -12,7 +13,7 @@ def main():
     st.write("**Text Mining und Web Analytics**")
     st.markdown(link1, unsafe_allow_html=True)
     st.markdown("""
-             - Auf der folgenden Seite werden Tweets von Elon Musk zwischen dem **02.12.2019 und dem 22.04.2022** in einem Dataframe abgebildet. 
+             - Auf der folgenden Seite werden Tweets von Elon Musk zwischen dem **02.12.2019 und dem 05.05.2022** in einem Dataframe abgebildet. 
              - Tweets die kürzer als drei Wörter waren wurden gelöscht und die Tweets mit Regular Expressions bereinigt.
              - Die Tweets wurden mit den Bibliothken **textblob** und **nltk** klassifiziert **(positive, negative und neutrale Tweets)**. 
              - Mit den verschiedenen Filtern lässt sich das Dataframe und die daraus generierten Grafiken interaktiv beinflussen. 
@@ -116,9 +117,9 @@ def main():
     st.write("Leider konnte keine Korrelation zwischen den Tweets von Elon Musk und dem Tesla Aktienkurs festgestellt werden.")
     st.markdown("""---""")
     st.title("📈 Aktienkurs von Tesla")
-    st.write("Die folgende Grafik zeigt den Tesla Aktienkurs zwischen dem 01.12.2019 und dem 08.04.2022")
+    st.write("Die folgende Grafik zeigt den Tesla Aktienkurs zwischen dem 01.12.2019 und dem 05.05.2022")
     # get_stock_data = yf.Ticker("TSLA")
-    # ticket_df = get_stock_data.history(period="1d", start="2019-12-01", end="2022-8-04")["Close"]
+    # ticket_df = get_stock_data.history(period="1d", start="2019-12-01", end="2022-5-05")["Close"]
     # ticket_df.to_csv("ticket_df.csv")
     ticket_df = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Text-Mining/main/ticket_df.csv", delimiter=",")
     line = alt.Chart(ticket_df, title="Telsa Aktienkurs").mark_line().encode(x="Date:T", y="Close",
