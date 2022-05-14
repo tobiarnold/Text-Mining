@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 #import yfinance
 
+#In der main Funktion werden alle Seiteninhalte definiert
 def main():
 #Definieren des Seiten Titels und des Layouts
     st.set_page_config(page_title="Twitter Elon Musk", page_icon="🚗", layout="centered")
@@ -56,13 +57,13 @@ def main():
     df_option = df_option[df_option["sentiment_nltk"].str.contains('|'.join(options3))]
 #Styling des Dataframes: positive Sentiments =>grün; neutral => gelb; negativ =>rot
     style=(lambda x: "background-color : #90EE90" if x == "positive" else ("background-color : #FF7F7F" if x == "negative" else "background-color : #ffffa1"))
-#abspeichern des individuell generierten Dataframes in verschiedenen Variablen zur Weiterverarbeitung
+#Abspeichern des individuell generierten Dataframes in verschiedenen Variablen zur Weiterverarbeitung
     df_download=df_option
     df_heatmap=df_option
     df_countplot=df_option
     df_wordcloud=df_option[["Text"]]
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
-#anzeigen des Dataframes auf der Webseite
+#Anzeigen des Dataframes auf der Webseite
     st.dataframe(df_option,1000,500)
 #Funktion zum Download des Dataframes inklusive Download Button
     @st.cache
@@ -71,7 +72,7 @@ def main():
     csv = convert_df(df_download)
     st.download_button("Download des Dataframes",csv,"Elon_Musk_Tweets.csv","text/csv",key='download-csv')
     st.markdown("""---""")
- #generieren des Countplots
+ #Generieren der Countplots
     st.title("📊 Countplots")
     st.write("Klassifizierung mit textblob")
     textblob_positive=df_countplot.sentiment_textblob.str.count("positive").sum()
@@ -101,7 +102,7 @@ def main():
     except:
         st.text("Bitte Dataframe Tweets mit Aktienkursen laden.")
     st.markdown("""---""")
- #generieren der Wordcloud inklusive Slider zur Einstellung der Wortanzahl
+ #Generieren der Wordcloud inklusive Slider zur Einstellung der Wortanzahl
     st.title("📚 Wordcloud")
     st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk. " 
              "Je nach Filtereinstellungen im Dataframe ändert sich die Zusammensetzung.  \n"
@@ -119,7 +120,7 @@ def main():
     except:
         st.write("Wordcloud kann nicht dargestellt werden.")
     st.markdown("""---""")
- # generieren der Korrelationsgrafik
+ #Generieren der Korrelationsgrafik
     st.title("📊 Korrelation")
     st.write("Die Heatmap zeigt die Korrelation zwischen den einzelenen nummerischen Spalten im Dataframe.  \n"
              "Die Korrelation ändert sich je nach Filtereinstellungen beim Dataframe")
