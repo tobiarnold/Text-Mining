@@ -1,3 +1,6 @@
+#Import der Bibliotheken
+#Es werden in dieser Webanwendung verschiedene Dataframes verwendet: eines nur mit den Tweets von Elon Musk und eines mit den Tweets und Akteinkursen
+#Die Dataframes wurden im Vorfeld aus dem Jupyter Notebook mittels yfinance und snscrape generiert
 import streamlit as st
 import pandas as pd
 import altair as alt
@@ -7,6 +10,7 @@ import seaborn as sns
 #import yfinance
 
 def main():
+#Definieren des Seiten Titels und des Layouts
     st.set_page_config(page_title="Twitter Elon Musk", page_icon="🚗", layout="centered")
     st.title("📈 Tweets von Elon Musk und der Tesla Aktienkurs")
     link1 = "[Elon Musk Twitter](https://twitter.com/elonmusk)"
@@ -23,6 +27,7 @@ def main():
              " Bei mobilen Geräten ist der Filter standardmäßig ausgeblendet und lässt sich mit dem Pfeil oben links aktivieren. ⚠️")
     st.markdown("""---""")
     st.title("👩‍💻 Dataframe")
+#Definieren für Filter für das Dataframe
     with st.sidebar.header ("Verschiedene Filtereinstellungen für den Dataframe"):
         df_choice = st.sidebar.selectbox("Dataframe mit allen Tweets (ohne Aktienkurse) oder mit Tweets und Aktienkursen (Wochenenden fallen weg)?",
         ("alle Tweets", "Tweets mit Aktienkursen"),index=1)
@@ -49,7 +54,9 @@ def main():
     df_option = df_option[df_option["Text"].str.contains('|'.join(options))]
     df_option = df_option[df_option["sentiment_textblob"].str.contains('|'.join(options2))]
     df_option = df_option[df_option["sentiment_nltk"].str.contains('|'.join(options3))]
+ #Styling des Dataframes: positive Sentiments =>grün; neutral => gelb; negativ =>rot
     style=(lambda x: "background-color : #90EE90" if x == "positive" else ("background-color : #FF7F7F" if x == "negative" else "background-color : #ffffa1"))
+#abspeichern des generierten Dataframes in verschiedene Variablen
     df_download=df_option
     df_heatmap=df_option
     df_countplot=df_option
