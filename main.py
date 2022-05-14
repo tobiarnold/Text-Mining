@@ -27,7 +27,7 @@ def main():
              " Bei mobilen Geräten ist der Filter standardmäßig ausgeblendet und lässt sich mit dem Pfeil oben links aktivieren. ⚠️")
     st.markdown("""---""")
     st.title("👩‍💻 Dataframe")
-#Definieren für Filter für das Dataframe
+#Definieren der Filter für das Dataframe
     with st.sidebar.header ("Verschiedene Filtereinstellungen für den Dataframe"):
         df_choice = st.sidebar.selectbox("Dataframe mit allen Tweets (ohne Aktienkurse) oder mit Tweets und Aktienkursen (Wochenenden fallen weg)?",
         ("alle Tweets", "Tweets mit Aktienkursen"),index=1)
@@ -54,21 +54,24 @@ def main():
     df_option = df_option[df_option["Text"].str.contains('|'.join(options))]
     df_option = df_option[df_option["sentiment_textblob"].str.contains('|'.join(options2))]
     df_option = df_option[df_option["sentiment_nltk"].str.contains('|'.join(options3))]
- #Styling des Dataframes: positive Sentiments =>grün; neutral => gelb; negativ =>rot
+#Styling des Dataframes: positive Sentiments =>grün; neutral => gelb; negativ =>rot
     style=(lambda x: "background-color : #90EE90" if x == "positive" else ("background-color : #FF7F7F" if x == "negative" else "background-color : #ffffa1"))
-#abspeichern des generierten Dataframes in verschiedene Variablen
+#abspeichern des individuell generierten Dataframes in verschiedenen Variablen zur Weiterverarbeitung
     df_download=df_option
     df_heatmap=df_option
     df_countplot=df_option
     df_wordcloud=df_option[["Text"]]
     df_option = df_option.style.applymap(style, subset=["sentiment_textblob","sentiment_nltk"])
+#anzeigen des Dataframes auf der Webseite
     st.dataframe(df_option,1000,500)
+#Funktion zum Download des Dataframes inklusive Download Button
     @st.cache
     def convert_df(df_download):
         return df_download.to_csv().encode('utf-8')
     csv = convert_df(df_download)
     st.download_button("Download des Dataframes",csv,"Elon_Musk_Tweets.csv","text/csv",key='download-csv')
     st.markdown("""---""")
+ #generieren des Countplots
     st.title("📊 Countplots")
     st.write("Klassifizierung mit textblob")
     textblob_positive=df_countplot.sentiment_textblob.str.count("positive").sum()
@@ -98,6 +101,7 @@ def main():
     except:
         st.text("Bitte Dataframe Tweets mit Aktienkursen laden.")
     st.markdown("""---""")
+ #generieren der Wordcloud inklusive Slider zur Einstellung der Wortanzahl
     st.title("📚 Wordcloud")
     st.write("Die Wordcloud zeigt die häufigsten Wörter in den Tweets von Elon Musk. " 
              "Je nach Filtereinstellungen im Dataframe ändert sich die Zusammensetzung.  \n"
@@ -115,6 +119,7 @@ def main():
     except:
         st.write("Wordcloud kann nicht dargestellt werden.")
     st.markdown("""---""")
+ # generieren der Korrelationsgrafik
     st.title("📊 Korrelation")
     st.write("Die Heatmap zeigt die Korrelation zwischen den einzelenen nummerischen Spalten im Dataframe.  \n"
              "Die Korrelation ändert sich je nach Filtereinstellungen beim Dataframe")
@@ -123,6 +128,7 @@ def main():
     st.write(fig)
     st.write("Leider konnte keine Korrelation zwischen den Tweets von Elon Musk und dem Tesla Aktienkurs festgestellt werden.")
     st.markdown("""---""")
+ #Anzeigen des Aktienkurses von Tesla, dieser wurde im Vorfled mittels der yfinance Bibliothek abgerufen und in einem Dataframe gespeichert
     st.title("📈 Aktienkurs von Tesla")
     st.write("Die folgende Grafik zeigt den Tesla Aktienkurs zwischen dem 01.12.2019 und dem 05.05.2022")
     # get_stock_data = yf.Ticker("TSLA")
@@ -136,5 +142,6 @@ def main():
     st.altair_chart(line, use_container_width=True)
     st.write("Der Tesla Aktienkurs hat stetig zugenommen. " 
              "Wie groß der Einluss von Elon Musk als einer der bekanntesten CEOs weltweit auf den Kursverlauf ist kann nicht abschließend erörtert werden.")
+#Aufrufen der main Funktion
 if __name__ == "__main__":
   main()
