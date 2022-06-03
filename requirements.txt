@@ -3,3 +3,4 @@ pandas ==1.3.5
 altair ==4.2.0
 wordcloud ==1.8.0
 matplotlib ==3.5.1
+seaborn ==0.11.2
